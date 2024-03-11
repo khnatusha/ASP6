@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Specify order";
+}
+@model ASP6.models.Order
+<head>
+    <link rel="stylesheet" href="~/css/specify.css" />
+</head>
+<body>
+    <div class="text-center">
+        <h1 class="display-4">Specify your order</h1>
+        <form method="post">
+            <div>
+                <label>Choose how many pizzas you want</label>
+            </div>
+            @if (Model.PepperoniCount != 0)
+            {
+                <div>
+                    <label>Pepperoni</label>
+                    <input type="number" name="pepperoniCount" min="0" value="@Model.PepperoniCount" style="width:60px" />
+                </div>
+            }
+            @if (Model.HawaiianCount != 0)
+            {
+                <div>
+                    <label>Hawaiian</label>
+                    <input type="number" name="hawaiianCount" min="0" value="@Model.HawaiianCount" style="width:60px" />
+                </div>
+            }
+            @if (Model.ChickenbbqCount != 0)
+            {
+                <div>
+                    <label>Chicken BBQ</label>
+                    <input type="number" name="chickenbbqCount" min="0" value="@Model.ChickenbbqCount" style="width:60px" />
+                </div>
+            }
+            @if (Model.MargheritaCount != 0)
+            {
+                <div>
+                    <label>Margherita</label>
+                    <input type="number" name="MargheritaCount" min="0" value="@Model.MargheritaCount" style="width:60px" />
+                </div>
+            }
+            <input type="submit" value="Continue" style="margin-top:10px" />
+        </form>
+    </div>
+</body>

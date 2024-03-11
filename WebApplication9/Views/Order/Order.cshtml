@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Confirm order";
+}
+@model ASP6.models.Order
+<head>
+    <link rel="stylesheet" href="~/css/order.css" />
+</head>
+<body>
+    <div class="text-center">
+        <h1 class="display-4">Confirm your order</h1>
+        <form method="post">
+            <div>
+                <label>Number of pizzas ordered</label>
+            </div>
+            @if (Model.PepperoniCount != 0)
+            {
+                <div>
+                    <label>Pepperoni: @Model.PepperoniCount</label>
+                </div>
+            }
+            @if (Model.HawaiianCount != 0)
+            {
+                <div>
+                    <label>Hawaiian: @Model.HawaiianCount</label>
+                </div>
+            }
+            @if (Model.ChickenbbqCount != 0)
+            {
+                <div>
+                    <label>Chicken BBQ: @Model.ChickenbbqCount</label>
+                </div>
+            }
+            @if (Model.MargheritaCount != 0)
+            {
+                <div>
+                    <label>Margherita: @Model.MargheritaCount</label>
+                </div>
+            }
+            <div>
+                <label>Total price: @Model.Price uah</label>
+            </div>
+            <input type="hidden" name="price" value="@Model.Price" />
+            <div>
+                <input type="submit" value="Order" />
+            </div>
+        </form>
+    </div>
+</body>

@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Products";
+    int j = 0;
+}
+@model IEnumerable<ASP6.Models.Product>
+<head>
+    <link rel="stylesheet" href="~/css/products.css" />
+</head>
+<body>
+    <div class="text-center">
+        <h1 class="display-4">Pizzas you can order right now</h1>
+    </div>
+    <div class="pizza-row">
+        @foreach (var product in Model)
+        {
+            var higherPrice = product.Price + 20;
+            <div class="pizza-col" align="center">
+                @switch (j)
+                {
+                    case 0:
+                        <img src="~/css/pictures/pepperoni.jpg" alt="Pepperoni" width="100" height="100">
+                        break;
+                    case 1:
+                        <img src="~/css/pictures/margherita.jpg" alt="Margherita" width="100" height="100">
+                        break;
+                    case 2:
+                        <img src="~/css/pictures/hawaiian.jpg" alt="Hawaiian" width="100" height="100">
+                        break;
+                    case 3:
+                        <img src="~/css/pictures/chickenbbq.jpg" alt="Chicken BBQ" width="100" height="100">
+                        break;
+                }
+                <div class="pizza-name"> @product.Name </div>
+                <div>Price: <s style="color:red">@higherPrice</s> <b style="color:green">@product.Price</b></div>
+                <div>Size: @product.Diameter cm</div>
+                <div class="ingredients">Ingredients</div>
+                <ul>
+                    @for (int i = 0; i < product.Ingredients.Count; i++)
+                    {
+                        <li>@product.Ingredients.ElementAt(i)</li>
+                    }
+                </ul>
+            </div>
+            j++;
+        }
+    </div>
+</body>
